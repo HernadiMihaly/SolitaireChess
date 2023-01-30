@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<AnchorPane prefHeight="670.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="inf.unideb.hu.chessgame.gui.controller.IntermediateController">
+
+    <children>
+        <Pane  id="1" onMouseClicked="#onBoardSelected" layoutX="154.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../images/levels/intermediate/1.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="2" onMouseClicked="#onBoardSelected" layoutX="351.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
+                <image>
+                    <Image url="@../images/levels/intermediate/2.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="3" onMouseClicked="#onBoardSelected" layoutX="550.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
+                <image>
+                    <Image url="@../images/levels/intermediate/3.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="4" onMouseClicked="#onBoardSelected" layoutX="747.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
+                <image>
+                    <Image url="@../images/levels/intermediate/4.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="5" onMouseClicked="#onBoardSelected" layoutX="154.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../images/levels/intermediate/5.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="6" onMouseClicked="#onBoardSelected" layoutX="351.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../images/levels/intermediate/6.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="7" onMouseClicked="#onBoardSelected" layoutX="550.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../images/levels/intermediate/7.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="8" onMouseClicked="#onBoardSelected" layoutX="747.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../images/levels/intermediate/8.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="9" onMouseClicked="#onBoardSelected" layoutX="304.0" layoutY="505.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
+                <image>
+                    <Image url="@../images/levels/intermediate/9.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Pane  id="10" onMouseClicked="#onBoardSelected" layoutX="597.0" layoutY="505.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../images/levels/intermediate/10.png" />
+                </image>
+            </ImageView>
+        </Pane>
+        <Text fill="#14129e" layoutX="228.0" layoutY="54.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Please click on the card that you want to be solved!">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Button id="backButton" fx:id="startButton" layoutX="47.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnBackClicked" prefHeight="44.0" prefWidth="91.0" text="Back" textFill="#165280">
+            <font>
+                <Font name="Impact" size="20.0" />
+            </font>
+        </Button>
+        <Button id="cancelButton" fx:id="cancelButton" layoutX="861.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnExitClicked" prefHeight="44.0" prefWidth="91.0" text="Exit" textFill="#165280">
+            <font>
+                <Font name="Impact" size="20.0" />
+            </font>
+        </Button>
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inf.unideb.hu.chessgame.gui.controller.LevelController">
+    <ImageView fitHeight="500.0" fitWidth="500.0">
+        <image>
+            <Image url="@../images/levels.png" />
+        </image>
+    </ImageView>
+
+    <Button id="startButton" fx:id="beginner" layoutX="236.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnBeginnerClicked" prefHeight="44.0" prefWidth="147.0" text="Beginner" textFill="#2ec94f">
+        <font>
+            <Font name="Impact" size="20.0" />
+        </font></Button>
+    <Button id="startButton" fx:id="intermediate" layoutX="236.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnIntermediateClicked" prefHeight="44.0" prefWidth="147.0" text="Intermediate" textFill="#ebbc3c">
+        <font>
+            <Font name="Impact" size="20.0" />
+        </font></Button>
+    <Button id="startButton" fx:id="advanced" layoutX="236.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnAdvancedClicked" prefHeight="44.0" prefWidth="147.0" text="Advanced" textFill="#ff8809">
+        <font>
+            <Font name="Impact" size="20.0" />
+        </font></Button>
+    <Button id="startButton" fx:id="expert" layoutX="236.0" layoutY="207.0" mnemonicParsing="false" onAction="#btnExpertClicked" prefHeight="44.0" prefWidth="147.0" text="Expert" textFill="#e80e0e">
+        <font>
+            <Font name="Impact" size="20.0" />
+        </font></Button>
+    <Button id="cancelButton" fx:id="cancelButton" layoutX="254.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancelClicked" prefHeight="33.0" prefWidth="112.0" text="EXIT" textFill="#165280">
+        <font>
+            <Font name="Impact" size="20.0" />
+        </font></Button>
+</AnchorPane>
