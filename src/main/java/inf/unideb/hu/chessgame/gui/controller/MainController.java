@@ -23,7 +23,7 @@ public class MainController {
     }
 
     @FXML
-    void btnCancelClicked(ActionEvent event) {
+    void btnCancelClicked() {
         Platform.exit();
     }
 }

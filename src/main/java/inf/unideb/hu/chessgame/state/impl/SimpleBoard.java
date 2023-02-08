@@ -3,8 +3,6 @@ package inf.unideb.hu.chessgame.state.impl;
 import inf.unideb.hu.chessgame.state.Board;
 import inf.unideb.hu.chessgame.state.Piece;
 
-import java.util.List;
-
 public class SimpleBoard implements Board {
         private Tile[][] tiles;
 
@@ -27,7 +25,7 @@ public class SimpleBoard implements Board {
             int x= piece.getTile().getX();
             int y= piece.getTile().getY();
 
-            if (x >= 0 && x < 4 && y >= 0 && y < 4
+            if (x >= 0 && x < getSize() && y >= 0 && y < getSize()
                 && !isOccupied(x, y))
             tiles[x][y]
                     .setPiece(piece);
@@ -47,4 +45,49 @@ public class SimpleBoard implements Board {
         public boolean isOccupied(int x, int y) {
             return tiles[x][y].getPiece() != null;
         }
+
+        @Override
+        public Board setBoardFromString(String boardRepresentation) {
+            String[] rows = boardRepresentation.split("\n");
+            for (int i = 0; i < getSize(); i++) {
+                String[] columns = rows[i].split(",");
+                for (int j = 0; j < getSize(); j++) {
+                    String pieceName = columns[j].trim();
+                    if (!pieceName.equals("(" + i + "," + j + ")")) {
+                        Piece piece = null;
+                        switch (pieceName) {
+                            case "Knight":
+                                piece = new Knight(tiles[i][j]);
+                                break;
+                            case "Rook":
+                                piece = new Rook(tiles[i][j]);
+                                break;
+                            case "Bishop":
+                                piece = new Bishop(tiles[i][j]);
+                                break;
+                            case "Pawn":
+                                piece = new Pawn(tiles[i][j]);
+                                break;
+                            case "Queen":
+                                piece = new Queen(tiles[i][j]);
+                                break;
+                            case "King":
+                                piece = new King(tiles[i][j]);
+                                break;
+                            default:
+                                break;
+                        }
+                        if (piece != null) {
+                            tiles[i][j].setPiece(piece);
+                        }
+                    }
+                }
+            }
+            return this;
+        }
+
+    @Override
+    public int getSize() {
+        return tiles.length;
+    }
 }

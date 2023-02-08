@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class LevelController {
     @FXML
-    void btnCancelClicked(ActionEvent event) {
+    void btnCancelClicked() {
         Platform.exit();
     }
 

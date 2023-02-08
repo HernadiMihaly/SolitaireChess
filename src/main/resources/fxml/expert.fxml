@@ -7,70 +7,70 @@
 <AnchorPane prefHeight="670.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inf.unideb.hu.chessgame.gui.controller.ExpertController">
 
     <children>
-        <Pane layoutX="154.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="1" onMouseClicked="#onBoardSelected" layoutX="154.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
                     <Image url="@../images/levels/expert/1.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="351.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="2" onMouseClicked="#onBoardSelected" layoutX="351.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
                 <image>
                     <Image url="@../images/levels/expert/2.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="550.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="3" onMouseClicked="#onBoardSelected" layoutX="550.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
                 <image>
                     <Image url="@../images/levels/expert/3.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="747.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="4" onMouseClicked="#onBoardSelected" layoutX="747.0" layoutY="120.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
                 <image>
                     <Image url="@../images/levels/expert/4.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="154.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="5" onMouseClicked="#onBoardSelected" layoutX="154.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
                     <Image url="@../images/levels/expert/5.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="351.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="6" onMouseClicked="#onBoardSelected" layoutX="351.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
                     <Image url="@../images/levels/expert/6.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="550.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="7" onMouseClicked="#onBoardSelected" layoutX="550.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
                     <Image url="@../images/levels/expert/7.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="747.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="8" onMouseClicked="#onBoardSelected" layoutX="747.0" layoutY="308.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
                     <Image url="@../images/levels/expert/8.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="304.0" layoutY="505.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="9" onMouseClicked="#onBoardSelected" layoutX="304.0" layoutY="505.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0" scaleX="0.98" scaleY="0.98" scaleZ="0.98">
                 <image>
                     <Image url="@../images/levels/expert/9.png" />
                 </image>
             </ImageView>
         </Pane>
-        <Pane layoutX="597.0" layoutY="505.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
+        <Pane id="10" onMouseClicked="#onBoardSelected" layoutX="597.0" layoutY="505.0" prefHeight="100.0" prefWidth="100.0" scaleX="1.5" scaleY="1.5" scaleZ="0.98">
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
                     <Image url="@../images/levels/expert/10.png" />

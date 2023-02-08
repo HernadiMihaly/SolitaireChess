@@ -3,14 +3,14 @@ package inf.unideb.hu.chessgame.state.impl;
 import inf.unideb.hu.chessgame.state.Board;
 import inf.unideb.hu.chessgame.state.Piece;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Knight implements Piece {
     private Tile tile;
 
     public Knight(Tile tile) {
         this.tile = tile;
-    }
-
-    public Knight() {
     }
 
     @Override
@@ -58,6 +58,21 @@ public class Knight implements Piece {
     @Override
     public void setTile(Tile tile) {
         this.tile = tile;
+    }
+
+    @Override
+    public List<Tile> getPossibleMoves(Board board) {
+        List<Tile> possibleTiles = new ArrayList<>();
+
+        for (int i=0; i<4; i++){
+            for (int j=0; j<4; j++){
+                if (isValidMove(board.getTile(i, j), board)){
+                    possibleTiles.add(board.getTile(i, j));
+                }
+            }
+        }
+
+        return possibleTiles;
     }
 
 }

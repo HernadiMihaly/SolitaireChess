@@ -36,151 +36,107 @@ public class BeginnerController {
 
         switch (mouseEvent.getSource().toString()) {
             case "Pane[id=1]": {
-                Bishop bishop = new Bishop(new Tile(0, 1));
-                Queen queen = new Queen(new Tile(1, 2));
-                Bishop bishop2= new Bishop(new Tile(2, 3));
-                Rook rook = new Rook(new Tile(3, 0));
-
-                board.placePiece(bishop);
-                board.placePiece(queen);
-                board.placePiece(bishop2);
-                board.placePiece(rook);
+                String boardRepresentation = "[ x, Bishop, x, x\n" +
+                                            " x, x, Queen, x\n" +
+                                            " x, x, x, Bishop\n" +
+                                            " Rook, x, x, x\n" +
+                                            "]";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
             case "Pane[id=2]": {
-                Knight knight = new Knight(new Tile(0, 2));
-                Bishop bishop = new Bishop(new Tile(1, 0));
-                Pawn pawn = new Pawn(new Tile(2, 1));
-                Rook rook = new Rook(new Tile(3, 2));
-
-                board.placePiece(knight);
-                board.placePiece(bishop);
-                board.placePiece(pawn);
-                board.placePiece(rook);
+                String boardRepresentation = " x, x, Knight, x\n" +
+                                            " Bishop, x, x, x\n" +
+                                            " x, Pawn, x, x\n" +
+                                            " x, x, Rook, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=3]": {
-                Queen queen = new Queen(new Tile(0, 0));
-                Rook rook = new Rook(new Tile(0, 2));
-                Knight knight = new Knight(new Tile(2, 1));
-                Pawn pawn = new Pawn(new Tile(3, 0));
-
-                board.placePiece(queen);
-                board.placePiece(rook);
-                board.placePiece(knight);
-                board.placePiece(pawn);
+                String boardRepresentation = " Queen, x, Rook, x\n" +
+                        " x, x, x, x\n" +
+                        " x, Knight, x, x\n" +
+                        " Pawn, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
             case "Pane[id=4]":{
-                Knight knight1 = new Knight(new Tile(0, 1));
-                Queen queen = new Queen(new Tile(1, 3));
-                Pawn pawn = new Pawn(new Tile(3, 0));
-                Knight knight2 = new Knight(new Tile(2, 2));
-
-                board.placePiece(knight1);
-                board.placePiece(queen);
-                board.placePiece(knight2);
-                board.placePiece(pawn);
+                String boardRepresentation = " x, Knight, x, x\n" +
+                        " x, x, x, Queen\n" +
+                        " x, x, Knight, x\n" +
+                        " Pawn, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=5]":{
-                Bishop bishop = new Bishop(new Tile(0, 1));
-                Queen queen = new Queen(new Tile(1, 1));
-                Pawn pawn = new Pawn(new Tile(2, 0));
-                King king = new King(new Tile(2, 2));
-
-                board.placePiece(bishop);
-                board.placePiece(queen);
-                board.placePiece(pawn);
-                board.placePiece(king);
+                String boardRepresentation = " x, Bishop, x, x\n" +
+                                            " x, Queen, x, x\n" +
+                                            " Pawn, x, King, x\n" +
+                                            " x, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=6]":{
-                Rook rook1 = new Rook(new Tile(1, 0));
-                Knight knight1 = new Knight(new Tile(1, 3));
-                Bishop bishop = new Bishop(new Tile(2, 1));
-                Knight knight2 = new Knight(new Tile(2, 2));
-                Rook rook2 = new Rook(new Tile(3, 0));
-
-                board.placePiece(rook1);
-                board.placePiece(knight1);
-                board.placePiece(bishop);
-                board.placePiece(knight2);
-                board.placePiece(rook2);
+                String boardRepresentation = " x, x, x, x\n" +
+                                            " Rook, x, x, Knight\n" +
+                                            " x, Bishop, Knight, x\n" +
+                                            " Rook, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=7]":{
-                Bishop bishop = new Bishop(new Tile(0, 3));
-                Pawn pawn1 = new Pawn(new Tile(1, 2));
-                Pawn pawn2 = new Pawn(new Tile(2, 3));
-                Rook rook = new Rook(new Tile(3, 0));
-                Knight knight = new Knight(new Tile(3, 1));
-
-                board.placePiece(bishop);
-                board.placePiece(pawn1);
-                board.placePiece(pawn2);
-                board.placePiece(rook);
-                board.placePiece(knight);
+                String boardRepresentation =
+                                            " x, x, x, Bishop\n" +
+                                            " x, x, Pawn, x\n" +
+                                            " x, x, x, Pawn\n" +
+                                            " Rook, Knight, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=8]":{
-                Bishop bishop1 = new Bishop(new Tile(0, 1));
-                Queen queen = new Queen(new Tile(1, 1));
-                Bishop bishop2 = new Bishop(new Tile(1, 2));
-                Knight knight1 = new Knight(new Tile(1, 3));
-                Knight knight2 = new Knight(new Tile(3, 0));
-
-                board.placePiece(bishop1);
-                board.placePiece(queen);
-                board.placePiece(bishop2);
-                board.placePiece(knight1);
-                board.placePiece(knight2);
+                String boardRepresentation =
+                                            " x, Bishop, x, x\n" +
+                                            " x, Queen, Bishop, Knight\n" +
+                                            " x, x, x, x\n" +
+                                            " Knight, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=9]":{
-                Rook rook1 = new Rook(new Tile(0, 1));
-                Knight knight1 = new Knight(new Tile(0, 3));
-                Knight knight2 = new Knight(new Tile(1, 1));
-                Pawn pawn = new Pawn(new Tile(2, 0));
-                Rook rook2 = new Rook(new Tile(2, 2));
-
-                board.placePiece(rook1);
-                board.placePiece(knight1);
-                board.placePiece(knight2);
-                board.placePiece(pawn);
-                board.placePiece(rook2);
+                String boardRepresentation =
+                                " x, Rook, x, Knight\n" +
+                                " x, Knight, x, x\n" +
+                                " Pawn, x, Rook, x\n" +
+                                " x, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
             }
 
             case "Pane[id=10]":{
-                Bishop bishop = new Bishop(new Tile(0, 2));
-                Queen queen = new Queen(new Tile(1, 1));
-                Rook rook = new Rook(new Tile(1, 3));
-                Knight knight2 = new Knight(new Tile(3, 0));
-                Knight knight1 = new Knight(new Tile(2, 1));
-
-                board.placePiece(bishop);
-                board.placePiece(queen);
-                board.placePiece(rook);
-                board.placePiece(knight1);
-                board.placePiece(knight2);
+                String boardRepresentation =
+                                " x, x, Bishop, x\n" +
+                                " x, Queen, x, Rook\n" +
+                                " x, Knight, x, x\n" +
+                                " Knight, x, x, x\n";
+                board.setBoardFromString(boardRepresentation);
 
                 break;
+
             }
         }
         gameController.startGame(board, mouseEvent);
