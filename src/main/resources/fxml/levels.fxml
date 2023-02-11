@@ -12,23 +12,23 @@
         </image>
     </ImageView>
 
-    <Button id="startButton" fx:id="beginner" layoutX="236.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnBeginnerClicked" prefHeight="44.0" prefWidth="147.0" text="Beginner" textFill="#2ec94f">
+    <Button id="startButton" fx:id="beginner" layoutX="236.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLevelSelected" prefHeight="44.0" prefWidth="147.0" text="Beginner" textFill="#2ec94f">
         <font>
             <Font name="Impact" size="20.0" />
         </font></Button>
-    <Button id="startButton" fx:id="intermediate" layoutX="236.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnIntermediateClicked" prefHeight="44.0" prefWidth="147.0" text="Intermediate" textFill="#ebbc3c">
+    <Button id="startButton" fx:id="intermediate" layoutX="236.0" layoutY="94.0" mnemonicParsing="false" onAction="#onLevelSelected" prefHeight="44.0" prefWidth="147.0" text="Intermediate" textFill="#ebbc3c">
         <font>
             <Font name="Impact" size="20.0" />
         </font></Button>
-    <Button id="startButton" fx:id="advanced" layoutX="236.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnAdvancedClicked" prefHeight="44.0" prefWidth="147.0" text="Advanced" textFill="#ff8809">
+    <Button id="startButton" fx:id="advanced" layoutX="236.0" layoutY="151.0" mnemonicParsing="false" onAction="#onLevelSelected" prefHeight="44.0" prefWidth="147.0" text="Advanced" textFill="#ff8809">
         <font>
             <Font name="Impact" size="20.0" />
         </font></Button>
-    <Button id="startButton" fx:id="expert" layoutX="236.0" layoutY="207.0" mnemonicParsing="false" onAction="#btnExpertClicked" prefHeight="44.0" prefWidth="147.0" text="Expert" textFill="#e80e0e">
+    <Button id="startButton" fx:id="expert" layoutX="236.0" layoutY="207.0" mnemonicParsing="false" onAction="#onLevelSelected" prefHeight="44.0" prefWidth="147.0" text="Expert" textFill="#e80e0e">
         <font>
             <Font name="Impact" size="20.0" />
         </font></Button>
-    <Button id="cancelButton" fx:id="cancelButton" layoutX="254.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnCancelClicked" prefHeight="33.0" prefWidth="112.0" text="EXIT" textFill="#165280">
+    <Button id="cancelButton" fx:id="cancelButton" layoutX="254.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnExitClicked" prefHeight="33.0" prefWidth="112.0" text="EXIT" textFill="#165280">
         <font>
             <Font name="Impact" size="20.0" />
         </font></Button>

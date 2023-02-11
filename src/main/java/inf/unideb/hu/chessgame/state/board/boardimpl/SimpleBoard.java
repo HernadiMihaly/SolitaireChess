@@ -1,7 +1,8 @@
-package inf.unideb.hu.chessgame.state.impl;
+package inf.unideb.hu.chessgame.state.board.boardimpl;
 
-import inf.unideb.hu.chessgame.state.Board;
-import inf.unideb.hu.chessgame.state.Piece;
+import inf.unideb.hu.chessgame.state.board.Board;
+import inf.unideb.hu.chessgame.state.pieces.Piece;
+import inf.unideb.hu.chessgame.state.pieces.piecesimpl.*;
 
 public class SimpleBoard implements Board {
         private Tile[][] tiles;

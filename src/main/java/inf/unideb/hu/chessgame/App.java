@@ -1,8 +1,5 @@
 package inf.unideb.hu.chessgame;
 
-import inf.unideb.hu.chessgame.state.Board;
-import inf.unideb.hu.chessgame.state.impl.*;
-
 /**
  * Hello world!
  *

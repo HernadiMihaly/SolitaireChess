@@ -1,0 +1,50 @@
+{
+  "beginner": {
+    "1": " x, Bishop, x, x\n x, x, Queen, x\n x, x, x, Bishop\n Rook, x, x, x\n",
+    "2": " x, x, Knight, x\n Bishop, x, x, x\n x, Pawn, x, x\n x, x, Rook, x\n",
+    "3": " Queen, x, Rook, x\n x, x, x, x\n x, Knight, x, x\n Pawn, x, x, x\n",
+    "4": " x, Knight, x, x\n x, x, x, Queen\n x, x, Knight, x\n Pawn, x, x, x\n",
+    "5": " x, Bishop, x, x\n x, Queen, x, x\n Pawn, x, King, x\n x, x, x, x\n",
+    "6": " x, x, x, x\n Rook, x, x, Knight\n x, Bishop, Knight, x\n Rook, x, x, x\n",
+    "7": " x, x, x, Bishop\n x, x, Pawn, x\n x, x, x, Pawn\n Rook, Knight, x, x\n",
+    "8": " x, Bishop, x, x\n x, Queen, Bishop, Knight\n x, x, x, x\n Knight, x, x, x\n",
+    "9": " x, Rook, x, Knight\n x, Knight, x, x\n Pawn, x, Rook, x\n x, x, x, x\n",
+    "10": " x, x, Bishop, x\n x, Queen, x, Rook\n x, Knight, x, x\n Knight, x, x, x\n"
+  },
+  "intermediate": {
+    "1": " x, x, Bishop, x\n x, x, x, Bishop\n x, x, Queen, Pawn\n Knight, Rook, x, x\n",
+    "2": " x, x, Rook, Queen\n Rook, x, x, x\n x, x, Knight, Pawn\n Bishop, x, x, x\n",
+    "3": " Bishop, x, x, x\n x, x, x, x\n Bishop, x, Rook, Knight\n x, Pawn, Pawn, x\n",
+    "4": " x, x, Rook, x\n Rook, Pawn, x, x\n Bishop, King, x, x\n x, x, Bishop, x\n",
+    "5": " x, x, Rook, x\n Knight, x, x, Pawn\n x, x, Pawn, x\n Knight, Rook, x, x\n",
+    "6": " x, Knight, x, x\n x, Bishop, Pawn, Bishop\n Pawn, x, Knight, x\n x, x, x, x\n",
+    "7": " x, x, Knight, x\n x, Bishop, x, x\n Pawn, Bishop, Knight, x\n Pawn, x, x, x\n",
+    "8": " x, Rook, x, x\n x, x, Pawn, x\n x, x, Bishop, x\n Knight, Rook, x, Knight\n",
+    "9": " Rook, x, x, x\n Queen, x, x, Bishop\n x, Pawn, x, x\n x, Knight, Pawn, x\n",
+    "10": " x, x, x, Bishop\n Bishop, x, Queen, x\n Knight, x, x, x\n x, Pawn, Knight, x\n"
+  },
+  "advanced": {
+    "1": " Rook, x, x, x\n x, Pawn, Knight, Bishop\n x, x, Pawn, Rook\n Bishop, x, x, x\n",
+    "2": " x, x, Bishop, x\n x, Bishop, King, x\n Knight, Knight, x, Pawn\n Pawn, x, x, x\n",
+    "3": " x, x, x, Rook\n x, Rook, Pawn, x\n Bishop, x, x, Knight\n x, Pawn, Bishop, x\n",
+    "4": " x, x, Rook, Bishop\n x, x, x, Pawn\n Bishop, Knight, x, x\n Pawn, x, Rook, x\n",
+    "5": " x, x, x, Bishop\n x, x, x, Rook\n Rook, Knight, Knight, x\n Pawn, Pawn, x, x\n",
+    "6": " x, x, Knight, Bishop\n x, Knight, x, Pawn\n Pawn, Rook, x, x\n Bishop, x, x, x\n",
+    "7": " x, Knight, Knight, x\n Pawn, x, Rook, Pawn\n x, x, x, Bishop\n Bishop, x, x, x\n",
+    "8": " x, x, Bishop, Rook\n x, x, Pawn, Knight\n Bishop, Pawn, x, x\n Rook, x, x, x\n",
+    "9": " x, x, Rook, x\n Rook, x, x, Pawn\n x, Bishop, King, x\n Pawn, x, x, Bishop\n",
+    "10": " x, x, Bishop, Knight\n x, Rook, Bishop, Pawn\n Knight, x, x, x\n x, Pawn, x, x\n"
+  },
+  "expert": {
+    "1": " x, Knight, Knight, x\n x, Rook, Rook, x\n Pawn, x, x, Bishop\n Pawn, x, x, Bishop\n",
+    "2": " x, x, Pawn, x\n x, Rook, Rook, x\n Knight, Knight, x, x\n Bishop, Pawn, x, Bishop\n",
+    "3": " x, x, x, Rook\n Rook, Bishop, Pawn, x\n King, x, x, x\n Knight, Pawn, Bishop, x\n",
+    "4": " x, Bishop, Knight, Knight\n x, Bishop, Pawn, Pawn\n x, Rook, x, x\n Rook, x, x, x\n",
+    "5": " x, Pawn, Knight, x\n x, Pawn, Knight, x\n Bishop, x, x, Bishop\n Rook, x, x, Rook\n",
+    "6": " x, Knight, Bishop, Knight\n x, Bishop, Pawn, Rook\n x, x, x, Pawn\n Rook, x, x, x\n",
+    "7": " x, x, x, Rook\n Bishop, x, Pawn, x\n Bishop, Rook, Knight, x\n x, Knight, Pawn, x\n",
+    "8": " x, x, Knight, Bishop\n x, Bishop, Pawn, Knight\n x, Rook, Pawn, x\n Rook, x, x, x\n",
+    "9": " x, Rook, Pawn, x\n Bishop, Rook, x, Pawn\n Knight, Bishop, x, x\n Knight, x, x, x\n",
+    "10": " x, Knight, Bishop, x\n x, x, Bishop, Pawn\n Rook, Rook, x, Pawn\n Knight, x, x, x\n"
+  }
+}

@@ -1,9 +1,8 @@
 package inf.unideb.hu.chessgame.gui.controller;
 
-import inf.unideb.hu.chessgame.state.Board;
-import inf.unideb.hu.chessgame.state.Piece;
-import inf.unideb.hu.chessgame.state.impl.Tile;
-import javafx.application.Platform;
+import inf.unideb.hu.chessgame.state.board.Board;
+import inf.unideb.hu.chessgame.state.pieces.Piece;
+import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,21 +22,17 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-public class GameController {
+public class GameController extends BaseController {
     private static Board board;
     private Button[][] buttons;
     private Piece selectedPiece;
     private List<Tile> possibleMoves;
+    String level = ChessGameDataManager.getInstance().getLevel();
 
     @FXML
     GridPane gridPane;
     @FXML
     Text winText;
-
-    @FXML
-    public void btnExitClicked() {
-        Platform.exit();
-    }
 
     @FXML
     public void initialize() {
@@ -56,7 +51,8 @@ public class GameController {
 
     public void btnBackClicked(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/levels.fxml")));
+        String fileName = String.format("/fxml/%s.fxml", level);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fileName)));
         stage.setScene(new Scene(root));
         stage.show();
     }

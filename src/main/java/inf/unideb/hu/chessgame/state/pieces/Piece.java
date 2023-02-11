@@ -1,6 +1,7 @@
-package inf.unideb.hu.chessgame.state;
+package inf.unideb.hu.chessgame.state.pieces;
 
-import inf.unideb.hu.chessgame.state.impl.Tile;
+import inf.unideb.hu.chessgame.state.board.Board;
+import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
 import java.util.List;
 

@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MainController {
+public class MainController extends BaseController {
 
     @FXML
     void btnStartClicked(ActionEvent event) throws IOException {
@@ -22,8 +22,4 @@ public class MainController {
         stage.show();
     }
 
-    @FXML
-    void btnCancelClicked() {
-        Platform.exit();
-    }
 }

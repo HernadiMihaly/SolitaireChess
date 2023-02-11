@@ -1,6 +1,6 @@
-package inf.unideb.hu.chessgame.state.impl;
+package inf.unideb.hu.chessgame.state.board.boardimpl;
 
-import inf.unideb.hu.chessgame.state.Piece;
+import inf.unideb.hu.chessgame.state.pieces.Piece;
 
 public class Tile {
     private int x;

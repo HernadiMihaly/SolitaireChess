@@ -1,18 +1,15 @@
-package inf.unideb.hu.chessgame.state.impl;
+package inf.unideb.hu.chessgame.state.pieces.piecesimpl;
 
-import inf.unideb.hu.chessgame.state.Board;
-import inf.unideb.hu.chessgame.state.Piece;
+import inf.unideb.hu.chessgame.state.board.Board;
+import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rook implements Piece {
+public class Rook extends ChessPiece {
     public Rook(Tile tile) {
-        this.tile = tile;
+        super(tile);
     }
-
-    private Tile tile;
-
 
     @Override
     public boolean isValidMove(Tile tile, Board board) {
@@ -21,23 +18,13 @@ public class Rook implements Piece {
 
         if(x<4 && x>= 0 && y<4 && y>=0
                 && isPathClear(x, y, board)
-                && (x == this.tile.getX() || y == this.tile.getY())
-                && !(this.getTile().getX() == x && this.tile.getY() == y)) {
+                && (x == super.getTile().getX() || y == getTile().getY())
+                && !(getTile().getX() == x && getTile().getY() == y)) {
             if (board.isOccupied(x, y)) {
                 return true;
             }
         }
         return false;
-    }
-
-    @Override
-    public String getName() {
-        return "Rook";
-    }
-
-    @Override
-    public void setTile(Tile tile) {
-        this.tile = tile;
     }
 
     @Override
@@ -55,34 +42,18 @@ public class Rook implements Piece {
         return possibleTiles;
     }
 
-    @Override
-    public void move(Tile tile, Board board) {
-        if (isValidMove(tile, board)){
-            board.removePiece(this.tile);
-            board.removePiece(tile);
-            this.tile = tile;
-            board.placePiece(this);
-        }
-        else {System.out.println("not valid move");}
-    }
-
-    @Override
-    public Tile getTile() {
-        return tile;
-    }
-
     public boolean isPathClear(int destX, int destY, Board board) {
-        int min = Math.min(destY, this.tile.getY());
-        int max = Math.max(destY, this.tile.getY());
+        int min = Math.min(destY, getTile().getY());
+        int max = Math.max(destY, getTile().getY());
 
-        if (destX == this.tile.getX()) {
+        if (destX == getTile().getX()) {
             // moving horizontally
             for (int i = min + 1; i < max; i++) {
                 if (board.getTile(destX, i).getPiece() != null) {
                     return false;
                 }
             }
-        } else if (destY == this.tile.getY()) {
+        } else if (destY == getTile().getY()) {
             // moving vertically
             for (int i = min + 1; i < max; i++) {
                 if (board.getTile(i, destY).getPiece() != null) {
@@ -93,5 +64,10 @@ public class Rook implements Piece {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return "Rook";
     }
 }
