@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
@@ -21,6 +22,7 @@ import java.util.Optional;
 
 public class BoardController extends BaseController {
     GameController gameController = new GameController();
+    BacktrackingController backtrackingController = new BacktrackingController();
 
     @FXML
     void btnBackClicked(ActionEvent event) throws IOException {
@@ -58,15 +60,22 @@ public class BoardController extends BaseController {
 
         ButtonType solveItButton = new ButtonType("I want to solve it!");
         ButtonType aiSolveItButton = new ButtonType("I want AI to solve it!");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(solveItButton, aiSolveItButton, cancelButton);
 
-        alert.getButtonTypes().setAll(solveItButton, aiSolveItButton);
+        Node cancelButtonNode = alert.getDialogPane().lookupButton(cancelButton);
+        cancelButtonNode.setVisible(false);
+        cancelButtonNode.setManaged(false);
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == solveItButton){
-            gameController.startGame(board, mouseEvent);
-        } else {
-            // implement the AI solving functionality here
+        if (result.isPresent()) {
+            if (result.get() == solveItButton) {
+                gameController.startGame(board, mouseEvent);
+            } else if (result.get() == aiSolveItButton) {
+                backtrackingController.startGame(board, mouseEvent);
+            }
         }
+
     }
 
 }

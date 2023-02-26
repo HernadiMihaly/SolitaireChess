@@ -65,18 +65,8 @@ public class GameController extends BaseController {
         }
     }
 
-    private boolean isWon(){
-        int numberOfPiecesOnBoard = 0;
-
-        for (int i = 0; i < board.getSize(); i++) {
-            for (int j = 0; j < board.getSize(); j++) {
-                if(board.getTile(i, j).getPiece() != null){
-                    numberOfPiecesOnBoard++;
-                }
-            }
-        }
-
-        return numberOfPiecesOnBoard == 1 ? true : false;
+    public boolean isWon(){
+        return board.getNumberOfPieces() == 1;
     }
 
     private void representTileWithButton(int i, int j){
@@ -86,6 +76,14 @@ public class GameController extends BaseController {
         placePiece(new Tile(i, j), button);
         gridPane.add(button, j, i);
         buttons[i][j] = button;
+    }
+
+    public void placeTile(Tile tile, Button button){
+        if ((tile.getX() + tile.getY()) % 2 == 0) {
+            changeBackground("images/LightTile.png", button);
+        } else {
+            changeBackground("images/DarkTile.png", button);
+        }
     }
 
     private void placePiece(Tile tile, Button button){
@@ -105,7 +103,7 @@ public class GameController extends BaseController {
         button.setOnAction(e -> buttonClicked(tile.getX(), tile.getY()));
     }
 
-    private void setLightPiece(Piece piece, Button button){
+    public void setLightPiece(Piece piece, Button button){
         switch(piece.getName()) {
             case "King":
                 changeBackground("images/LightKing.png", button);
@@ -128,7 +126,7 @@ public class GameController extends BaseController {
         }
     }
 
-    private void setDarkPiece(Piece piece, Button button){
+    public void setDarkPiece(Piece piece, Button button){
         switch(piece.getName()) {
             case "King":
                 changeBackground("images/DarkKing.png", button);
@@ -151,15 +149,7 @@ public class GameController extends BaseController {
         }
     }
 
-    private void placeTile(Tile tile, Button button){
-        if ((tile.getX() + tile.getY()) % 2 == 0) {
-            changeBackground("images/LightTile.png", button);
-        } else {
-            changeBackground("images/DarkTile.png", button);
-        }
-    }
-
-    private void changeBackground(String path, Button button){
+    public void changeBackground(String path, Button button){
         BackgroundImage backgroundImage = new BackgroundImage(new Image(path),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
@@ -183,7 +173,8 @@ public class GameController extends BaseController {
         }
 
         selectedPiece = piece;
-        possibleMoves = selectedPiece.getPossibleMoves(board);
+
+        possibleMoves = selectedPiece.getPossibleMoves(board.getTile(x, y), board);
 
         if (!possibleMoves.isEmpty()) {
             for (Tile tile : possibleMoves) {
@@ -198,12 +189,22 @@ public class GameController extends BaseController {
 
     private void movePiece(int x, int y){
         Tile selectedTile = new Tile(x, y);
-
-        selectedPiece.move(selectedTile, board);
+        selectedPiece.move(getCurrentTile(), selectedTile, board);
         refreshBoard();
         selectedPiece = null;
         possibleMoves = null;
         displayWinStatus();
+    }
+
+    private Tile getCurrentTile(){
+        for (int i = 0; i < board.getSize(); i++) {
+            for (int j = 0; j < board.getSize(); j++) {
+                if (board.getTile(i, j).getPiece() == selectedPiece){
+                    return new Tile(i, j);
+                }
+            }
+        }
+        return null;
     }
 
     private void displayWinStatus(){

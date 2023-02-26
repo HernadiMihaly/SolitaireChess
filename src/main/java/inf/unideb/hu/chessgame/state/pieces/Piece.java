@@ -6,10 +6,9 @@ import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 import java.util.List;
 
 public interface Piece {
-    boolean isValidMove(Tile tile, Board board);
+    boolean isValidMove(Tile stepFrom, Tile stepTo, Board board);
     String getName();
-    void move(Tile tile, Board board);
-    Tile getTile();
-    void setTile(Tile tile);
-    List<Tile> getPossibleMoves(Board board);
+    void move(Tile stepFrom, Tile stepTo, Board board);
+    List<Tile> getPossibleMoves(Tile stepFrom, Board board);
+    boolean equals(Object obj);
 }

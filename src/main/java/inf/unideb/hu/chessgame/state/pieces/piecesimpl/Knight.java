@@ -3,48 +3,27 @@ package inf.unideb.hu.chessgame.state.pieces.piecesimpl;
 import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Knight extends ChessPiece {
-    public Knight(Tile tile) {
-        super(tile);
-    }
 
     @Override
-    public boolean isValidMove(Tile tile, Board board) {
-        int x= tile.getX();
-        int y= tile.getY();
+    public boolean isValidMove(Tile stepFrom, Tile stepTo, Board board) {
+        int x= stepTo.getX();
+        int y= stepTo.getY();
 
         if (x<4 && x>= 0 && y<4 && y>=0 &&
-                ((x == getTile().getX() + 1 && y == getTile().getY() + 2) ||
-                (x == getTile().getX() + 1 && y == getTile().getY() - 2) ||
-                (x == getTile().getX() - 1 && y == getTile().getY() + 2) ||
-                (x == getTile().getX() - 1 && y == getTile().getY() - 2) ||
-                (x == getTile().getX() + 2 && y == getTile().getY() + 1) ||
-                (x == getTile().getX() + 2 && y == getTile().getY() - 1) ||
-                (x == getTile().getX() - 2 && y == getTile().getY() + 1) ||
-                (x == getTile().getX() - 2 && y == getTile().getY() - 1))) {
+                ((x == stepFrom.getX() + 1 && y == stepFrom.getY() + 2) ||
+                (x == stepFrom.getX() + 1 && y == stepFrom.getY() - 2) ||
+                (x == stepFrom.getX() - 1 && y == stepFrom.getY() + 2) ||
+                (x == stepFrom.getX() - 1 && y == stepFrom.getY() - 2) ||
+                (x == stepFrom.getX() + 2 && y == stepFrom.getY() + 1) ||
+                (x == stepFrom.getX() + 2 && y == stepFrom.getY() - 1) ||
+                (x == stepFrom.getX() - 2 && y == stepFrom.getY() + 1) ||
+                (x == stepFrom.getX() - 2 && y == stepFrom.getY() - 1))) {
             if (board.isOccupied(x, y)) {
                 return true;
             }
         }
         return false;
-    }
-
-    @Override
-    public List<Tile> getPossibleMoves(Board board) {
-        List<Tile> possibleTiles = new ArrayList<>();
-
-        for (int i=0; i<4; i++){
-            for (int j=0; j<4; j++){
-                if (isValidMove(board.getTile(i, j), board)){
-                    possibleTiles.add(board.getTile(i, j));
-                }
-            }
-        }
-
-        return possibleTiles;
     }
 
     @Override

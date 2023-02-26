@@ -3,23 +3,16 @@ package inf.unideb.hu.chessgame.state.pieces.piecesimpl;
 import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Bishop extends ChessPiece {
 
-    public Bishop(Tile tile) {
-        super(tile);
-    }
-
     @Override
-    public boolean isValidMove(Tile tile, Board board) {
-        int x= tile.getX();
-        int y= tile.getY();
+    public boolean isValidMove(Tile stepFrom, Tile stepTo, Board board) {
+        int x= stepTo.getX();
+        int y= stepTo.getY();
 
-        if(x< board.getSize() && x>= 0 && y< board.getSize() && y>=0  && isPathClear(x, y, board)
-                && Math.abs(x - getTile().getX()) == Math.abs(y - getTile().getY())
-                && !(getTile().getX() == x && getTile().getY() == y)) {
+        if(x< board.getSize() && x>= 0 && y< board.getSize() && y>=0  && isPathClear(stepFrom, x, y, board)
+                && Math.abs(x - stepFrom.getX()) == Math.abs(y - stepFrom.getY())
+                && !(stepFrom.getX() == x && stepFrom.getY() == y)) {
             if (board.isOccupied(x, y)) {
                 return true;
             }
@@ -27,29 +20,14 @@ public class Bishop extends ChessPiece {
         return false;
     }
 
-    @Override
-    public List<Tile> getPossibleMoves(Board board) {
-        List<Tile> possibleTiles = new ArrayList<>();
+    public boolean isPathClear(Tile stepFrom, int x, int y, Board board) {
+        int xDir = x > stepFrom.getX() ? 1 : -1;
+        int yDir = y > stepFrom.getY() ? 1 : -1;
 
-        for (int i=0; i< board.getSize(); i++){
-            for (int j=0; j< board.getSize(); j++){
-                if (isValidMove(board.getTile(i, j), board)){
-                    possibleTiles.add(board.getTile(i, j));
-                }
-            }
-        }
-
-        return possibleTiles;
-    }
-
-    public boolean isPathClear(int x, int y, Board board) {
-        int xDir = x > getTile().getX() ? 1 : -1;
-        int yDir = y > getTile().getY() ? 1 : -1;
-
-        if (Math.abs(x - getTile().getX()) == Math.abs(y - getTile().getY())) {
+        if (Math.abs(x - stepFrom.getX()) == Math.abs(y - stepFrom.getY())) {
             // moving diagonally
-            for (int i = 1; i < Math.abs(x - getTile().getX()); i++) {
-                if (board.getTile(getTile().getX() + i * xDir, getTile().getY() + i * yDir).getPiece() != null) {
+            for (int i = 1; i < Math.abs(x - stepFrom.getX()); i++) {
+                if (board.getTile(stepFrom.getX() + i * xDir, stepFrom.getY() + i * yDir).getPiece() != null) {
                     return false;
                 }
             }
@@ -61,4 +39,5 @@ public class Bishop extends ChessPiece {
     public String getName() {
         return "Bishop";
     }
+
 }
