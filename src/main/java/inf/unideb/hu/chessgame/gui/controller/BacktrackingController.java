@@ -1,6 +1,8 @@
 package inf.unideb.hu.chessgame.gui.controller;
 
 import inf.unideb.hu.chessgame.state.ai.Btracking;
+import inf.unideb.hu.chessgame.state.ai.HeuristicSearch;
+import inf.unideb.hu.chessgame.state.ai.Search;
 import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 import inf.unideb.hu.chessgame.state.pieces.Piece;
@@ -28,7 +30,7 @@ import java.util.Objects;
 
 public class BacktrackingController extends BaseController{
     private static Board baseBoard;
-    private static Btracking backtracking;
+    private static Search search;
     private static List<Board> solutions;
 
     private GameController gameController = new GameController();
@@ -36,12 +38,16 @@ public class BacktrackingController extends BaseController{
     @FXML
     public GridPane gridPane;
     @FXML
-    Text winText;
+    public Text winText;
 
     public void startGame(Board board, javafx.scene.input.MouseEvent event) throws IOException {
         this.baseBoard = board;
-        this.backtracking = new Btracking(baseBoard);
-        this.solutions = backtracking.solve();
+        if (ChessGameDataManager.getInstance().getLevel().equals("expert")){
+            this.search = new HeuristicSearch(baseBoard);
+        } else {
+            this.search = new Btracking(baseBoard);
+        }
+        this.solutions = search.solve();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/backtracking.fxml")));
@@ -56,9 +62,6 @@ public class BacktrackingController extends BaseController{
     @FXML
     public void initialize() {
         buttons = new Button[baseBoard.getSize()][baseBoard.getSize()];
-        for (Board sol: solutions){
-            System.out.println(sol);
-        }
 
         Timeline timeline = new Timeline();
         int delay = 1500;
@@ -91,7 +94,6 @@ public class BacktrackingController extends BaseController{
         placePiece(new Tile(i, j), button, board);
         gridPane.add(button, j, i);
         buttons[i][j] = button;
-        // Sleep for 5 seconds
     }
 
     private void placePiece(Tile tile, Button button, Board board){

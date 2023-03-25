@@ -25,10 +25,6 @@ public class ChessGameDataManager {
         this.level = level;
     }
 
-    public Board getGameBoard() {
-        return gameBoard;
-    }
-
     public void setGameBoard(Board gameBoard) {
         this.gameBoard = gameBoard;
     }

@@ -21,7 +21,6 @@ public abstract class Search {
     }
 
     public List<Board> solve() {
-        System.out.println(board);
         counter++;
         if (boardStates.isEmpty()) {
             addBoardState();
