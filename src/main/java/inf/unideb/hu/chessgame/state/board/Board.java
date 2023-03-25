@@ -16,4 +16,9 @@ public interface Board {
     int getNumberOfPieces();
     Board clone();
     Tile[][] getTiles();
+    int calculateHeuristicValue();
+    void setHeuristicValue(int heuristicValue);
+    int getHeuristicValue();
+    void setParent(Board parent);
+    Board getParent();
 }

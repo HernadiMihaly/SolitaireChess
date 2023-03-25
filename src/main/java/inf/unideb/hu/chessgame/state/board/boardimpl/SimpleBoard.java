@@ -6,6 +6,8 @@ import inf.unideb.hu.chessgame.state.pieces.piecesimpl.*;
 
 public class SimpleBoard implements Board {
     private Tile[][] tiles;
+    private Board parent;
+    private int heuristicValue;
 
     public SimpleBoard() {
             tiles = new Tile[4][4];
@@ -15,6 +17,53 @@ public class SimpleBoard implements Board {
                 }
             }
         }
+
+    @Override
+    public Board getParent() {
+        return parent;
+    }
+
+    @Override
+    public void setParent(Board parent) {
+        this.parent = parent;
+    }
+
+    @Override
+    public int getHeuristicValue() {
+        return heuristicValue;
+    }
+
+    @Override
+    public void setHeuristicValue(int heuristicValue) {
+        this.heuristicValue = heuristicValue;
+    }
+
+    @Override
+    public int calculateHeuristicValue() {
+        int heuristicValue = 0;
+        for (int x = 0; x < getSize(); x++) {
+            for (int y = 0; y < getSize(); y++) {
+                if (isOccupied(x, y)) {
+                    Piece piece = tiles[x][y].getPiece();
+                    if (piece instanceof Knight) {
+                        heuristicValue += 1;
+                    } else if (piece instanceof Bishop) {
+                        heuristicValue += 3;
+                    } else if (piece instanceof Rook) {
+                        heuristicValue += 5;
+                    } else if (piece instanceof Queen) {
+                        heuristicValue += 9;
+                    } else if (piece instanceof King) {
+                        heuristicValue += 100;
+                    }
+                    else if (piece instanceof Pawn) {
+                        heuristicValue += 200;
+                    }
+                }
+            }
+        }
+        return heuristicValue;
+    }
 
         @Override
         public Tile getTile(int x, int y) {
@@ -114,37 +163,20 @@ public class SimpleBoard implements Board {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("   ");
         for (int i = 0; i < getSize(); i++) {
-            sb.append("+---");
-        }
-        sb.append("+\n");
-
-        for (int i = 0; i < getSize(); i++) {
-            sb.append(" " + (getSize() - i) + " ");
             for (int j = 0; j < getSize(); j++) {
-                sb.append("| ");
-                if (tiles[i][j].getPiece() == null) {
-                    sb.append("  ");
+                if (tiles[i][j].getPiece() == null){
+                    sb.append("x");
                 } else {
                     Piece piece = tiles[i][j].getPiece();
-                    sb.append(piece.getName().substring(0, 2));
+                    sb.append(piece.getName());
                 }
+                sb.append(",");
                 sb.append(" ");
             }
-            sb.append("| " + (getSize() - i) + "\n");
-            sb.append("   ");
-            for (int j = 0; j < getSize(); j++) {
-                sb.append("+---");
-            }
-            sb.append("+\n");
+            sb.delete(sb.length()-2, sb.length());// remove the last ", " from the line
+            sb.append("\n");
         }
-
-        sb.append("   ");
-        for (int i = 0; i < getSize(); i++) {
-            sb.append(" " + (char)('a' + i) + "  ");
-        }
-        sb.append("\n");
 
         return sb.toString();
     }
