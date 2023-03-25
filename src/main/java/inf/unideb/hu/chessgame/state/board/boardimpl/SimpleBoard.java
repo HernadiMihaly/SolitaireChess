@@ -6,8 +6,6 @@ import inf.unideb.hu.chessgame.state.pieces.piecesimpl.*;
 
 public class SimpleBoard implements Board {
     private Tile[][] tiles;
-    private Board parent;
-    private int heuristicValue;
 
     public SimpleBoard() {
             tiles = new Tile[4][4];
@@ -17,130 +15,20 @@ public class SimpleBoard implements Board {
                 }
             }
         }
-
     @Override
-    public Board getParent() {
-        return parent;
+    public Tile getTile(int x, int y) {
+        return tiles[x][y];
     }
 
     @Override
-    public void setParent(Board parent) {
-        this.parent = parent;
+    public Tile[][] getTiles() {
+        return tiles;
     }
 
     @Override
-    public int getHeuristicValue() {
-        return heuristicValue;
+    public int getSize() {
+        return tiles.length;
     }
-
-    @Override
-    public void setHeuristicValue(int heuristicValue) {
-        this.heuristicValue = heuristicValue;
-    }
-
-    @Override
-    public int calculateHeuristicValue() {
-        int heuristicValue = 0;
-        for (int x = 0; x < getSize(); x++) {
-            for (int y = 0; y < getSize(); y++) {
-                if (isOccupied(x, y)) {
-                    Piece piece = tiles[x][y].getPiece();
-                    if (piece instanceof Knight) {
-                        heuristicValue += 1;
-                    } else if (piece instanceof Bishop) {
-                        heuristicValue += 3;
-                    } else if (piece instanceof Rook) {
-                        heuristicValue += 5;
-                    } else if (piece instanceof Queen) {
-                        heuristicValue += 9;
-                    } else if (piece instanceof King) {
-                        heuristicValue += 100;
-                    }
-                    else if (piece instanceof Pawn) {
-                        heuristicValue += 200;
-                    }
-                }
-            }
-        }
-        return heuristicValue;
-    }
-
-        @Override
-        public Tile getTile(int x, int y) {
-            return tiles[x][y];
-        }
-
-        @Override
-        public void placePiece(Tile placeTo, Piece piece) {
-            int x= placeTo.getX();
-            int y= placeTo.getY();
-
-            if (x >= 0 && x < getSize() && y >= 0 && y < getSize()
-                && !isOccupied(x, y))
-            tiles[x][y]
-                    .setPiece(piece);
-        }
-
-        @Override
-        public void removePiece(Tile tile) {
-            int x= tile.getX();
-            int y= tile.getY();
-
-            if (isOccupied(x, y)) {
-                tiles[x][y].setPiece(null);
-            }
-        }
-
-        @Override
-        public boolean isOccupied(int x, int y) {
-            return tiles[x][y].getPiece() != null;
-        }
-
-        @Override
-        public Board setBoardFromString(String boardRepresentation) {
-            String[] rows = boardRepresentation.split("\n");
-            for (int i = 0; i < getSize(); i++) {
-                String[] columns = rows[i].split(",");
-                for (int j = 0; j < getSize(); j++) {
-                    String pieceName = columns[j].trim();
-                    if (!pieceName.equals("(" + i + "," + j + ")")) {
-                        Piece piece = null;
-                        switch (pieceName) {
-                            case "Knight":
-                                piece = new Knight();
-                                tiles[i][j].setPiece(piece);
-                                break;
-                            case "Rook":
-                                piece = new Rook();
-                                tiles[i][j].setPiece(piece);
-                                break;
-                            case "Bishop":
-                                piece = new Bishop();
-                                tiles[i][j].setPiece(piece);
-                                break;
-                            case "Pawn":
-                                piece = new Pawn();
-                                tiles[i][j].setPiece(piece);
-                                break;
-                            case "Queen":
-                                piece = new Queen();
-                                tiles[i][j].setPiece(piece);
-                                break;
-                            case "King":
-                                piece = new King();
-                                tiles[i][j].setPiece(piece);
-                                break;
-                            default:
-                                break;
-                        }
-                        if (piece != null) {
-                            tiles[i][j].setPiece(piece);
-                        }
-                    }
-                }
-            }
-            return this;
-        }
 
     @Override
     public int getNumberOfPieces() {
@@ -156,8 +44,75 @@ public class SimpleBoard implements Board {
     }
 
     @Override
-    public int getSize() {
-        return tiles.length;
+    public void placePiece(Tile placeTo, Piece piece) {
+        int x= placeTo.getX();
+        int y= placeTo.getY();
+
+        if (x >= 0 && x < getSize() && y >= 0 && y < getSize()
+                && !isOccupied(x, y))
+            tiles[x][y]
+                    .setPiece(piece);
+    }
+
+    @Override
+    public void removePiece(Tile tile) {
+        int x= tile.getX();
+        int y= tile.getY();
+
+        if (isOccupied(x, y)) {
+            tiles[x][y].setPiece(null);
+        }
+    }
+
+    @Override
+    public boolean isOccupied(int x, int y) {
+        return tiles[x][y].getPiece() != null;
+    }
+
+    @Override
+    public Board setBoardFromString(String boardRepresentation) {
+        String[] rows = boardRepresentation.split("\n");
+        for (int i = 0; i < getSize(); i++) {
+            String[] columns = rows[i].split(",");
+            for (int j = 0; j < getSize(); j++) {
+                String pieceName = columns[j].trim();
+                if (!pieceName.equals("(" + i + "," + j + ")")) {
+                    Piece piece = null;
+                    switch (pieceName) {
+                        case "Knight":
+                            piece = new Knight();
+                            tiles[i][j].setPiece(piece);
+                            break;
+                        case "Rook":
+                            piece = new Rook();
+                            tiles[i][j].setPiece(piece);
+                            break;
+                        case "Bishop":
+                            piece = new Bishop();
+                            tiles[i][j].setPiece(piece);
+                            break;
+                        case "Pawn":
+                            piece = new Pawn();
+                            tiles[i][j].setPiece(piece);
+                            break;
+                        case "Queen":
+                            piece = new Queen();
+                            tiles[i][j].setPiece(piece);
+                            break;
+                        case "King":
+                            piece = new King();
+                            tiles[i][j].setPiece(piece);
+                            break;
+                        default:
+                            break;
+                    }
+                    if (piece != null) {
+                        tiles[i][j].setPiece(piece);
+                    }
+                }
+            }
+        }
+        return this;
     }
 
     @Override
@@ -212,10 +167,5 @@ public class SimpleBoard implements Board {
         }
 
         return clonedBoard;
-    }
-
-    @Override
-    public Tile[][] getTiles() {
-        return tiles;
     }
 }
