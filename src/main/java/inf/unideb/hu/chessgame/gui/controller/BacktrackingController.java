@@ -1,6 +1,6 @@
 package inf.unideb.hu.chessgame.gui.controller;
 
-import inf.unideb.hu.chessgame.state.ai.Btracking;
+import inf.unideb.hu.chessgame.state.ai.Backtracking;
 import inf.unideb.hu.chessgame.state.ai.HeuristicSearch;
 import inf.unideb.hu.chessgame.state.ai.Search;
 import inf.unideb.hu.chessgame.state.board.Board;
@@ -8,7 +8,6 @@ import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 import inf.unideb.hu.chessgame.state.pieces.Piece;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +44,7 @@ public class BacktrackingController extends BaseController{
         if (ChessGameDataManager.getInstance().getLevel().equals("expert")){
             this.search = new HeuristicSearch(baseBoard);
         } else {
-            this.search = new Btracking(baseBoard);
+            this.search = new Backtracking(baseBoard);
         }
         this.solutions = search.solve();
 

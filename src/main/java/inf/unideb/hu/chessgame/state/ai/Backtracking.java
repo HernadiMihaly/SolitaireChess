@@ -3,9 +3,9 @@ package inf.unideb.hu.chessgame.state.ai;
 import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
-public class Btracking extends Search {
+public class Backtracking extends Search {
 
-    public Btracking(Board board) {
+    public Backtracking(Board board) {
         //kezdőállapot átadása
         super(board);
     }
