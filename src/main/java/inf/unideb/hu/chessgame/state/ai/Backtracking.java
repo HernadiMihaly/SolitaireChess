@@ -15,7 +15,7 @@ public class Backtracking extends Search {
             for (int y = 0; y < board.getSize(); y++) {
                 if (isWon()) return;
                 //keressük az első Piece-t ami tud lépni
-                if (!board.isOccupied(x, y)
+                if (!board.isOccupied(board.getTile(x, y))
                         || board.getTile(x, y).getPiece().getPossibleMoves(new Tile(x, y), board).isEmpty()
                         || board.getTile(x, y).getPiece()
                         .getPossibleMoves(new Tile(x, y), board).size() == boardStates.lastElement().getTile(x, y).getTriedTiles().size())

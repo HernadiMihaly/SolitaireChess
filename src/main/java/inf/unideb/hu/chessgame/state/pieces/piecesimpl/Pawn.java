@@ -6,18 +6,9 @@ import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 public class Pawn extends ChessPiece {
 
     @Override
-    public boolean isValidMove(Tile stepFrom, Tile stepTo, Board board) {
-        int x= stepTo.getX();
-        int y= stepTo.getY();
-
-        if(x<4 && x>= 0 && y<4 && y>=0
-                && x == stepFrom.getX()-1
-                && (y == stepFrom.getY()-1 || y == stepFrom.getY()+1)) {
-            if (board.isOccupied(x, y)) {
-                return true;
-            }
-        }
-        return false;
+    protected boolean isValidSpecialMove(Tile stepFrom, Tile stepTo, Board board) {
+        return stepTo.getX() == stepFrom.getX()-1
+                && (stepTo.getY() == stepFrom.getY()-1 || stepTo.getY() == stepFrom.getY()+1);
     }
 
     @Override

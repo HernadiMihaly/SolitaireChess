@@ -35,7 +35,7 @@ public class SimpleBoard implements Board {
         int count = 0;
         for (int x = 0; x < getSize(); x++) {
             for (int y = 0; y < getSize(); y++) {
-                if (isOccupied(x, y)) {
+                if (isOccupied(tiles[x][y])) {
                     count++;
                 }
             }
@@ -49,7 +49,7 @@ public class SimpleBoard implements Board {
         int y= placeTo.getY();
 
         if (x >= 0 && x < getSize() && y >= 0 && y < getSize()
-                && !isOccupied(x, y))
+                && !isOccupied(tiles[x][y]))
             tiles[x][y]
                     .setPiece(piece);
     }
@@ -59,14 +59,15 @@ public class SimpleBoard implements Board {
         int x= tile.getX();
         int y= tile.getY();
 
-        if (isOccupied(x, y)) {
+        if (isOccupied(tiles[x][y])) {
             tiles[x][y].setPiece(null);
         }
     }
 
     @Override
-    public boolean isOccupied(int x, int y) {
-        return tiles[x][y].getPiece() != null;
+    public boolean isOccupied(Tile tile) {
+
+        return tiles[tile.getX()][tile.getY()].getPiece() != null;
     }
 
     @Override

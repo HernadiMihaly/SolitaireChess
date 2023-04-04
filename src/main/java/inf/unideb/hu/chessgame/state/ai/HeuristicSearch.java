@@ -33,7 +33,7 @@ public class HeuristicSearch extends Search {
                 if (isWon()) return;
 
                 Tile currentTile = board.getTile(x, y);
-                if (!board.isOccupied(x, y)
+                if (!board.isOccupied(currentTile)
                         || currentTile.getPiece().getPossibleMoves(currentTile, board).isEmpty()
                         || currentTile.getPiece().getPossibleMoves(currentTile, board).size() ==
                         boardStates.lastElement().getTile(x, y).getTriedTiles().size()) {

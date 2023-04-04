@@ -4,21 +4,11 @@ import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
 public class Rook extends ChessPiece {
-
     @Override
-    public boolean isValidMove(Tile stepFrom, Tile stepTo, Board board) {
-        int x= stepTo.getX();
-        int y= stepTo.getY();
-
-        if(x<4 && x>= 0 && y<4 && y>=0
-                && isPathClear(stepFrom, x, y, board)
-                && (x == stepFrom.getX() || y == stepFrom.getY())
-                && !(stepFrom.getX() == x && stepFrom.getY() == y)) {
-            if (board.isOccupied(x, y)) {
-                return true;
-            }
-        }
-        return false;
+    protected boolean isValidSpecialMove(Tile stepFrom, Tile stepTo, Board board) {
+        return isPathClear(stepFrom, stepTo.getX(), stepTo.getY(), board)
+                && (stepTo.getX() == stepFrom.getX() || stepTo.getY() == stepFrom.getY())
+                && !(stepFrom.getX() == stepTo.getX() && stepFrom.getY() == stepTo.getY());
     }
 
     public boolean isPathClear(Tile stepFrom, int destX, int destY, Board board) {

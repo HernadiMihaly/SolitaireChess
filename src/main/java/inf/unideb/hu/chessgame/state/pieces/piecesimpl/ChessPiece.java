@@ -16,9 +16,6 @@ public abstract class ChessPiece implements Piece {
             board.removePiece(stepTo);
             board.placePiece(stepTo,this);
         }
-        else {
-            System.out.println("not valid move");
-        }
     }
 
     @Override
@@ -37,7 +34,16 @@ public abstract class ChessPiece implements Piece {
     }
 
     @Override
-    public abstract boolean isValidMove(Tile stepFrom, Tile stepTo, Board board);
+    public boolean isValidMove(Tile stepFrom, Tile stepTo, Board board) {
+        if(stepTo.getX()< board.getSize() && stepTo.getX()>= 0 && stepTo.getY()< board.getSize() && stepTo.getY()>=0  && isValidSpecialMove(stepFrom, stepTo, board)) {
+            if (board.isOccupied(stepTo)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected abstract boolean isValidSpecialMove(Tile stepFrom, Tile stepTo, Board board);
 
     @Override
     public abstract String getName();

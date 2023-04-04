@@ -10,7 +10,7 @@ public interface Board {
     void placePiece(Tile placeTo, Piece piece);
     void removePiece(Tile tile);
     Tile getTile(int x, int y);
-    boolean isOccupied(int x, int y);
+    boolean isOccupied(Tile tile);
     Board setBoardFromString(String boardRepresentation);
     int getSize();
     int getNumberOfPieces();
