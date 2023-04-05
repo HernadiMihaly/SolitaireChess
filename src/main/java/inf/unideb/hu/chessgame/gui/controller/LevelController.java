@@ -16,7 +16,7 @@ public class LevelController extends BaseController{
     @FXML
     public void onLevelSelected(ActionEvent event) throws IOException{
         String level = getLevelFromEventString(event.getSource().toString()).toLowerCase();
-        ChessGameDataManager.getInstance().setLevel(level);
+        Singleton.getInstance().setLevel(level);
         String fileName = String.format("/fxml/%s.fxml", level);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

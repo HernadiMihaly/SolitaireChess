@@ -40,14 +40,14 @@ public class BoardController extends BaseController {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(inputStream);
 
-        String level = ChessGameDataManager.getInstance().getLevel();
+        String level = Singleton.getInstance().getLevel();
         JsonNode levelNode = rootNode.path(level);
 
         String id = mouseEvent.getSource().toString().split("=")[1].replace("]", "");
         String boardRepresentation = levelNode.path(id).asText();
 
         Board board = new SimpleBoard().setBoardFromString(boardRepresentation);
-        ChessGameDataManager.getInstance().setGameBoard(board);
+        Singleton.getInstance().setGameBoard(board);
 
         showPopUpMenu(board, mouseEvent);
     }

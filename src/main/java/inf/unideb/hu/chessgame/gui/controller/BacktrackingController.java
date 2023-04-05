@@ -41,7 +41,7 @@ public class BacktrackingController extends BaseController{
 
     public void startGame(Board board, javafx.scene.input.MouseEvent event) throws IOException {
         this.baseBoard = board;
-        if (ChessGameDataManager.getInstance().getLevel().equals("expert")){
+        if (Singleton.getInstance().getLevel().equals("expert")){
             this.search = new HeuristicSearch(baseBoard);
         } else {
             this.search = new Backtracking(baseBoard);

@@ -3,16 +3,16 @@ package inf.unideb.hu.chessgame.gui.controller;
 import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.SimpleBoard;
 
-public class ChessGameDataManager {
-    private static ChessGameDataManager instance;
+public class Singleton {
+    private static Singleton instance;
     private Board gameBoard = new SimpleBoard();
     private String level = "";
 
-    private ChessGameDataManager() {}
+    private Singleton() {}
 
-    public static ChessGameDataManager getInstance() {
+    public static Singleton getInstance() {
         if (instance == null) {
-            instance = new ChessGameDataManager();
+            instance = new Singleton();
         }
         return instance;
     }

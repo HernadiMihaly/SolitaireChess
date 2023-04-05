@@ -27,7 +27,7 @@ public class GameController extends BaseController {
     private Button[][] buttons;
     private Piece selectedPiece;
     private List<Tile> possibleMoves;
-    private String level = ChessGameDataManager.getInstance().getLevel();
+    private String level = Singleton.getInstance().getLevel();
 
     @FXML
     GridPane gridPane;
