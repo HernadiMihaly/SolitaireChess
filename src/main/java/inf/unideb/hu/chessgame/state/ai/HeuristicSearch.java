@@ -5,23 +5,28 @@ import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
 import java.util.*;
 
+/**
+ * Ez az osztály a visszalépéses keresést egy heurisztika alkalmazásával valósítja meg.
+ * Mindig a legtöbb lépési lehetőséggel rendelkező figurát választja mozgatásra.
+ */
 public class HeuristicSearch extends Search {
 
     public HeuristicSearch(Board board) {
         super(board);
     }
 
+    /**
+     * Megkeresi az összes figurát amelyik lépni tud az adott állapotban, majd lép a legnagyobb lépési lehetőséggel rendelkezővel.
+     * Ha nincs ilyen, akkor visszalép az előző állapotba.
+     */
     public void findPieceThatCanMove() {
         PriorityQueue<Tile> movablePieces = new PriorityQueue<>(
                 Comparator.comparingInt(o -> -evaluation(o)));
 
-        // Find all movable pieces and add them to the priority queue
         addAllMovablePieces(movablePieces);
 
-        // Move the piece that can attack the most number of pieces
         movePieceWithBiggestValue(movablePieces);
 
-        // If no movable pieces are found and game is not won, backtrack
         if (!isWon()) {
             backTrack();
         }
@@ -47,14 +52,11 @@ public class HeuristicSearch extends Search {
 
     private void movePieceWithBiggestValue(PriorityQueue<Tile> movablePieces){
         for (Tile tile : movablePieces) {
-            //if (isWon()) return;
-
             this.tile = tile;
             possibleMoves = tile.getPiece().getPossibleMoves(tile, board);
 
             removeTriedTilesFromPossibleSteps();
 
-            // Move the piece that can attack the most number of pieces
             processMovement();
 
             if (isWon()) return;
@@ -62,7 +64,6 @@ public class HeuristicSearch extends Search {
     }
 
     private int evaluation(Tile tile) {
-        // Evaluate how many places a piece can move to in the current state
         return tile.getPiece().getPossibleMoves(tile, board).size();
     }
 }

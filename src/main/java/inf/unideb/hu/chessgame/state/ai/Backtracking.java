@@ -3,18 +3,23 @@ package inf.unideb.hu.chessgame.state.ai;
 import inf.unideb.hu.chessgame.state.board.Board;
 import inf.unideb.hu.chessgame.state.board.boardimpl.Tile;
 
+/**
+ * Ez az osztály a visszalépéses keresés megvalósítására szolgál.
+ */
 public class Backtracking extends Search {
 
     public Backtracking(Board board) {
-        //kezdőállapot átadása
         super(board);
     }
 
+    /**
+     * Megkeresi a legelső figurát amely lépni tud, majd lép vele. Ha nincs ilyen, akkor visszalép.
+     */
     public void findPieceThatCanMove() {
         for (int x = 0; x < board.getSize(); x++) {
             for (int y = 0; y < board.getSize(); y++) {
                 if (isWon()) return;
-                //keressük az első Piece-t ami tud lépni
+
                 if (!board.isOccupied(board.getTile(x, y))
                         || board.getTile(x, y).getPiece().getPossibleMoves(new Tile(x, y), board).isEmpty()
                         || board.getTile(x, y).getPiece()
@@ -28,14 +33,12 @@ public class Backtracking extends Search {
 
                 removeTriedTilesFromPossibleSteps();
 
-                //lépünk
                 processMovement();
             }
         }
-        //ha nincs olyan Piece ami tud lépni és nem nyertünk még akkor visszalépünk
+
         if (!isWon()) {
             backTrack();
         }
     }
-
 }

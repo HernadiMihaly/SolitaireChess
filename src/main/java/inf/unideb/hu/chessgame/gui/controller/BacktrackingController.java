@@ -1,6 +1,5 @@
 package inf.unideb.hu.chessgame.gui.controller;
 
-import inf.unideb.hu.chessgame.state.ai.Backtracking;
 import inf.unideb.hu.chessgame.state.ai.HeuristicSearch;
 import inf.unideb.hu.chessgame.state.ai.Search;
 import inf.unideb.hu.chessgame.state.board.Board;
@@ -41,11 +40,7 @@ public class BacktrackingController extends BaseController{
 
     public void startGame(Board board, javafx.scene.input.MouseEvent event) throws IOException {
         this.baseBoard = board;
-        if (Singleton.getInstance().getLevel().equals("expert")){
-            this.search = new HeuristicSearch(baseBoard);
-        } else {
-            this.search = new Backtracking(baseBoard);
-        }
+        this.search = new HeuristicSearch(baseBoard);
         this.solutions = search.solve();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
