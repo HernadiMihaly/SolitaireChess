@@ -177,7 +177,7 @@ public class SimpleBoard implements Board {
                 sb.append(",");
                 sb.append(" ");
             }
-            sb.delete(sb.length()-2, sb.length());// remove the last ", " from the line
+            sb.delete(sb.length()-2, sb.length());
             sb.append("\n");
         }
 

@@ -11,5 +11,4 @@ public abstract class BaseController {
     public void btnExitClicked() {
         Platform.exit();
     }
-
 }

@@ -1,6 +1,5 @@
 package inf.unideb.hu.chessgame.gui.controller;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,5 +20,4 @@ public class MainController extends BaseController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
 }
